@@ -1,0 +1,517 @@
+/* =========================================
+   2일차/테마: 로맨틱 핑크뽀용 귀욤 공주님 테마
+   (모바일 퍼스트 기준 / 레이아웃 구조화)
+   ========================================= */
+
+/* 1. 색상 변수 정의 (HEX 코드) */
+:root {
+  --color-primary: #FFB6D3;   /* 대표색: 베이비 파우더 핑크 */
+  --color-accent: #D4B5F7;    /* 강조색: 페어리 소프트 라벤더 */
+  --color-text: #4A3542;      /* 글자색: 딥 플럼 브라운 */
+  --color-bg: #FFF8FB;        /* 배경색: 밀키 화이트 핑크 */
+  --color-sub: #FFE89E;       /* 서브 강조색: 크림 버터 옐로우 */
+  --color-white: #FFFFFF;     /* 카드 및 박스 배경 */
+  
+  /* [공주님 무드 추가 광채] */
+  --glow-pink: rgba(255, 182, 211, 0.45);
+  --glow-lavender: rgba(212, 181, 247, 0.35);
+}
+
+/* 2. 본문 기본 색상 및 여백 설정 (몽환적인 페어리 오로라 배경) */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(255, 232, 158, 0.22) 0%, transparent 35%),
+    radial-gradient(circle at 85% 85%, rgba(212, 181, 247, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 182, 211, 0.18) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+/* 3. 링크 기본 및 마우스 호버 스타일 (반짝이는 보석 호버) */
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:hover {
+  color: var(--color-primary);
+  text-shadow: 0 0 8px var(--glow-pink);
+}
+
+/* 4. 상단 머리 영역 (헤더: 스크롤 시 상단 고정) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px double var(--color-primary);
+  box-shadow: 0 8px 24px var(--glow-pink);
+  padding: 1.2rem 1rem;
+  text-align: center;
+}
+
+/* 사이트 제목 (빛나는 왕관 & 보석 텍스트) */
+header h1 {
+  color: var(--color-primary);
+  margin: 0 0 0.8rem 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 10px rgba(255, 182, 211, 0.6);
+  display: inline-block;
+}
+
+header h1::before {
+  content: '✨ ';
+  font-size: 1.2rem;
+}
+header h1::after {
+  content: ' 👑';
+  font-size: 1.3rem;
+}
+
+/* 메뉴 영역: Flexbox 적용 */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* 모바일 폭에 맞게 부드럽게 감싸지도록 허용 */
+}
+
+nav ul li {
+  background: none;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+}
+
+nav ul li::before {
+  content: none;
+}
+
+/* 마시멜로 퐁신퐁신 메뉴 버튼 */
+nav ul li a {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF2F7 100%);
+  border: 1.5px solid rgba(255, 182, 211, 0.6);
+  box-shadow: 0 3px 10px rgba(255, 182, 211, 0.2);
+}
+
+nav ul li a:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-white);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px var(--glow-pink);
+}
+
+/* 5. 메인 본문 레이아웃 */
+main {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1.8rem auto;
+  padding: 0 1rem;
+}
+
+/* 6. 섹션 공통 카드 스타일 */
+section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFAFC 100%);
+  border-radius: 24px;
+  padding: 2rem 1.4rem;
+  margin-bottom: 2rem;
+  border: 2px solid rgba(255, 182, 211, 0.55);
+  box-shadow: 
+    0 12px 32px var(--glow-pink), 
+    inset 0 0 20px rgba(255, 245, 250, 0.8);
+  position: relative;
+}
+
+/* 섹션 타이틀 */
+section h2 {
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #FFF0F6 0%, #F5ECFF 100%);
+  padding: 0.4rem 1.2rem;
+  border-radius: 25px;
+  border: 1.5px dashed var(--color-primary);
+  box-shadow: 0 3px 10px rgba(255, 182, 211, 0.25);
+}
+
+section h2::before {
+  content: '💖';
+  font-size: 1rem;
+}
+section h2::after {
+  content: '✨';
+  font-size: 1rem;
+}
+
+/* 소개 섹션: Grid 레이아웃 적용 */
+#about {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+#about h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* 프로필 사진 */
+#about img {
+  width: 210px;               /* 350px -> 210px로 축소 */
+  height: 270px;              /* 450px -> 270px로 축소 (7:9 비율 유지) */
+  object-fit: cover;
+  border-radius: 20px;
+  border: 5px solid var(--color-white);
+  outline: 3px solid var(--color-primary);
+  box-shadow: 
+    0 0 0 7px rgba(212, 181, 247, 0.4),
+    0 10px 24px var(--glow-pink);
+  margin-bottom: 0.8rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#about img:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 
+    0 0 0 9px rgba(212, 181, 247, 0.6),
+    0 14px 30px var(--glow-pink);
+}
+
+/* 7. 경력 섹션 및 아티클 카드 스타일: Grid 레이아웃 적용 */
+#career {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+#career h2 {
+  justify-self: center;
+}
+
+article {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FFF5FA 100%);
+  border-radius: 18px;
+  padding: 1.2rem 1.4rem;
+  margin-bottom: 0;
+  border: 2px dashed var(--color-accent);
+  box-shadow: 0 6px 18px var(--glow-lavender);
+  transition: all 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-3px);
+  background: #FFFFFF;
+  box-shadow: 0 10px 24px var(--glow-pink);
+  border-color: var(--color-primary);
+}
+
+article h3 {
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+article h3::before {
+  content: '🎀';
+  font-size: 1.05rem;
+}
+
+/* 8. 역량 및 교육·자격 목록 스타일 */
+#skills ul,
+#education ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+#skills li,
+#education li {
+  margin-bottom: 0;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF7FB 100%);
+  padding: 0.75rem 1.2rem;
+  border-radius: 16px;
+  border-left: 6px solid var(--color-primary);
+  border-right: 1px solid rgba(255, 182, 211, 0.3);
+  border-top: 1px solid rgba(255, 182, 211, 0.3);
+  border-bottom: 1px solid rgba(255, 182, 211, 0.3);
+  box-shadow: 0 3px 10px rgba(255, 182, 211, 0.15);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+#skills li::before,
+#education li::before {
+  content: '🌸';
+  margin-right: 0.6rem;
+  font-size: 0.95rem;
+}
+
+/* 9. 이미지 기본 설정 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 182, 211, 0.5);
+  box-shadow: 0 8px 20px var(--glow-pink);
+}
+
+/* 10. 하단 바닥 영역 (푸터) */
+footer {
+  text-align: center;
+  padding: 2rem 1rem 2.8rem 1rem;
+  color: #8C7585;
+  font-size: 0.88rem;
+  border-top: 2px dashed var(--color-primary);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+footer p::before {
+  content: '˚₊·—̳͟͞͞♡ ';
+  color: var(--color-primary);
+}
+footer p::after {
+  content: ' ♡—̳͟͞͞·₊˚';
+  color: var(--color-primary);
+}
+
+/* ===================================================
+   [11. 반응형 태블릿 스타일 (화면 너비 768px 이상)]
+   =================================================== */
+@media (min-width: 768px) {
+
+  /* 11-1. 헤더: 사이트 이름 왼쪽, 메뉴 오른쪽 가로 배치 */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2.5rem;
+  }
+
+  header h1 {
+    margin-bottom: 0; /* 아래 여백을 없애 메뉴와 같은 높이로 정렬 */
+  }
+
+  nav ul {
+    flex-wrap: nowrap; /* 메뉴 항목들이 한 줄로 나란히 유지되도록 설정 */
+  }
+
+  /* 11-2. 메인 컨테이너: 태블릿 화면에 맞춘 최대 너비 설정 */
+  main {
+    max-width: 720px;
+  }
+
+  /* 11-3. 소개 섹션 */
+  #about {
+    grid-template-columns: 210px 1fr;  /* 350px -> 210px 수정 */
+    grid-template-areas:
+      "photo name"
+      "photo desc";
+    column-gap: 2rem;
+    row-gap: 0.8rem;
+    align-items: center;              /* 상하 중앙 정렬 */
+    text-align: left;
+    justify-items: start;
+  }
+
+  #about img {
+    grid-area: photo;
+    width: 210px;                      /* 210px */
+    height: 270px;                     /* 270px */
+    margin-bottom: 0;
+    justify-self: center;
+  }
+
+  #about h2 {
+    grid-area: name;
+    margin-bottom: 0;
+  }
+
+  #about p {
+    grid-area: desc;
+    margin: 0;
+  }
+
+  /* 11-4. 경력 섹션: 카드(article) 2열 그리드 배치 */
+  #career {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  #career h2 {
+    grid-column: 1 / -1; /* 제목은 전체 너비를 차지하도록 상단 배치 */
+  }
+
+  /* 11-5. 보유 기술 및 교육 목록: 항목 2열 그리드 배치 */
+  #skills ul,
+  #education ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+}
+
+/* ===================================================
+   [12. 반응형 PC/데스크톱 스타일 (화면 너비 1024px 이상)]
+   =================================================== */
+@media (min-width: 1024px) {
+
+  /* 12-1. 메인 컨테이너: 큰 화면에 맞춘 최대 너비 확장 */
+  main {
+    max-width: 960px;
+  }
+
+  /* 12-2. 소개 섹션 */
+  #about {
+    grid-template-columns: 210px 1fr;  /* 350px -> 210px 수정 */
+    column-gap: 2.5rem;
+  }
+
+  /* 프로필 사진 */
+  #about img {
+    width: 210px;                      /* 210px */
+    height: 270px;                     /* 270px */
+  }
+
+  /* 이름 폰트 및 뱃지 크기 확대 */
+  #about h2 {
+    font-size: 1.6rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+/* =========================================
+   [13. 문의 폼 스타일 (핑크뽀용 공주님 테마)]
+   ========================================= */
+#contact {
+  text-align: center;
+}
+
+#contact-form {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 580px;
+  margin: 1.8rem auto 0;
+  text-align: left;
+}
+
+#contact-form label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+#contact-form label::before {
+  content: '💌';
+  font-size: 0.9rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.85rem 1.1rem;
+  border: 1.5px solid rgba(255, 182, 211, 0.7);
+  border-radius: 16px;
+  background-color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  box-shadow: inset 0 2px 6px rgba(255, 182, 211, 0.12);
+  transition: all 0.25s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #BCA4B3;
+  font-size: 0.9rem;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 14px var(--glow-pink), inset 0 2px 4px rgba(255, 182, 211, 0.15);
+  background-color: #FFFDFE;
+}
+
+#contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* 마시멜로 그라디언트 전송 버튼 */
+#contact-form button {
+  margin-top: 1rem;
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 18px var(--glow-pink);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#contact-form button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 24px var(--glow-pink);
+  filter: brightness(103%);
+}
+
+#form-msg {
+  min-height: 1.6em;
+  margin-top: 0.8rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+#form-msg.error {
+  color: #E25C80; /* 부드러운 딸기우유빛 경고색 */
+}
+
+#form-msg.success {
+  color: #8E63B8; /* 소프트 라벤더 포인트 완료색 */
+}
